@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "enter filename"
+read filename
+echo "enter string"
+read string
+if [ -f $filename ]
+then
+echo "find $string"
+grep -i $string $filename 
+else
+echo "file not exit"
