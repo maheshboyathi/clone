@@ -6,14 +6,14 @@ pipeline(){
         sh '''
         docker build -t madhu /root/docker
         '''
-     }
+      }
     }
-    stage('container'){
+    stage('test'){
      steps{
        sh '''
        docker run -d -p9099:80 --name c1 madhu /bin/bash
        '''
-      }
-   }
+     }
+    }
   }
 }
