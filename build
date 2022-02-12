@@ -1,24 +1,19 @@
 pipeline(){
-    agent('node'){
-label 'node'
-    }
-
-
-
-stages(){
-stage('build'){
-steps{
-sh '''
-docker build -t mahi1 /root/docker
-'''
-}
-}
-stage('container'){
-steps{
-sh '''
-docker run -d -p8000:80 --name c1 mahi1 /bin/bash
-'''
-}
-}
-    }
+    agent any
+ stages(
+   stage('build'){
+      steps{
+        sh '''
+        docker build -t mahi /root/docker
+        '''
+     }
+   }
+   stage('container'){
+     steps{
+       sh '''
+       docker run -d -p9099:80 --name c1 mahi /bin/bash
+       '''
+      }
+   }
+  }
 }
