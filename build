@@ -1,17 +1,17 @@
 pipeline(){
     agent any
- stages(
-   stage('build'){
-      steps{
+  stages(
+    stage('build'){
+     steps{
         sh '''
-        docker build -t mahi /root/docker
+        docker build -t madhu /root/docker
         '''
      }
-   }
-   stage('container'){
+    }
+    stage('container'){
      steps{
        sh '''
-       docker run -d -p9099:80 --name c1 mahi /bin/bash
+       docker run -d -p9099:80 --name c1 madhu /bin/bash
        '''
       }
    }
